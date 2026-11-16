@@ -2,7 +2,7 @@
 
 // Predict the output of the following code:
 /*
-  Prediction: the program will print the last digit of 103 (which is 3) in all three lines, because "getLastDigit" has no parameter and always uses the global "num".
+  Prediction: the program will print the last digit of 103 (which is 3) in all three lines, because getLastDigit() has no parameter and always uses the global "num".
 */
 
 /*
@@ -16,7 +16,7 @@
   console.log(`The last digit of 105 is ${getLastDigit(105)}`);
   console.log(`The last digit of 806 is ${getLastDigit(806)}`);
 
-  "getLastDigit" has no parameter, so the arguments 42, 105 and 806 are ignored.
+  getLastDigit() has no parameter, so the arguments 42, 105 and 806 are ignored.
   The function always uses the global "num" (103).
 */
 
@@ -24,7 +24,7 @@
 // Explain why getLastDigit is not working properly - correct the problem
 
 /*
-  Now "getLastDigit" has a parameter "num", so it uses the number passed to it.
+  Now getLastDigit() has a parameter "num", so it uses the number passed to it.
   The global "num" is removed because it is no longer needed.
 */
 

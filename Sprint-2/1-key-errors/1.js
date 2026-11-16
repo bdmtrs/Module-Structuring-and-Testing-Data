@@ -20,7 +20,7 @@
 
 // Finally, correct the code to fix the problem
 /*
-  Now the extra declaration is removed, and console.log prints the result
+  Now the extra declaration is removed, and console.log() prints the result
   of calling the function with 0.5 as the argument.
 */
 

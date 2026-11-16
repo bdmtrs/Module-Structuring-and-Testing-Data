@@ -14,7 +14,7 @@
 
 // Finally, correct the code to fix the problem
 /*
-  Now the parameter is renamed to "num", and console.log prints the result of square(3).
+  Now the parameter is renamed to "num", and console.log() prints the result of square(3).
 */
 
 function square(num) {

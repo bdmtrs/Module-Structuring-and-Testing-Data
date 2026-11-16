@@ -12,12 +12,12 @@
 
   console.log(`The sum of 10 and 32 is ${sum(10, 32)}`);
 
-  "return;" exits "sum" function right away and returns undefined. The line "a + b;" comes after it, so it is never executed.
+  "return;" exits the sum() function right away and returns undefined. The line "a + b;" comes after it, so it is never executed.
 */
 
 // Finally, correct the code to fix the problem
 /*
-  Now "sum" returns a + b, so the result is inserted into the string.
+  Now sum() returns a + b, so the result is inserted into the string.
 */
 
 function sum(a, b) {
