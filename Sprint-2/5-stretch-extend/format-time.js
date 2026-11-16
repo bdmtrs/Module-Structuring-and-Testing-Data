@@ -22,3 +22,14 @@ function checkTimeOutput(time, targetOutput) {
 // existing tests
 checkTimeOutput("08:00", "08:00 am");
 checkTimeOutput("23:00", "11:00 pm");
+
+// midnight is shown as "00:00 am" instead of "12:00 am"
+checkTimeOutput("00:00", "12:00 am");
+
+// midday is shown as "am" instead of "pm"
+checkTimeOutput("12:00", "12:00 pm");
+
+// hours after midday have no leading zero, and their minutes are replaced with ":00")
+checkTimeOutput("13:30", "01:30 pm");
+checkTimeOutput("20:45", "08:45 pm");
+checkTimeOutput("23:59", "11:59 pm");
