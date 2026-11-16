@@ -6,6 +6,12 @@ function formatAs12HourClock(time) {
   const hours = Number(time.slice(0, 2));
   const minutes = time.slice(3);
 
+  // Checks if hours and minutes are within valid ranges
+  if (hours < 0 || hours > 23 || Number(minutes) < 0 || Number(minutes) > 59) {
+    return "Invalid time";
+  }
+
+  // Handles midnight (00:00–00:59)
   if (hours === 0) {
     return `12:${minutes} am`;
   }
@@ -18,10 +24,11 @@ function formatAs12HourClock(time) {
     return `${time} pm`;
   }
 
+  // Converts afternoon hours to 12-hour format with a leading zero
   return `${String(hours - 12).padStart(2, "0")}:${minutes} pm`;
 }
 
-// checks one input against the expected output
+// Checks one input against the expected output
 function checkTimeOutput(time, targetOutput) {
   const currentOutput = formatAs12HourClock(time);
   console.assert(
@@ -30,17 +37,21 @@ function checkTimeOutput(time, targetOutput) {
   );
 }
 
-// existing tests
+// Existing tests
 checkTimeOutput("08:00", "08:00 am");
 checkTimeOutput("23:00", "11:00 pm");
 
-// midnight is shown as "00:00 am" instead of "12:00 am"
+// Midnight is shown as "00:00 am" instead of "12:00 am"
 checkTimeOutput("00:00", "12:00 am");
 
-// midday is shown as "am" instead of "pm"
+// Midday is shown as "am" instead of "pm"
 checkTimeOutput("12:00", "12:00 pm");
 
-// hours after midday have no leading zero, and their minutes are replaced with ":00")
+// Afternoon hours lack a leading zero, and minutes are replaced with ":00"
 checkTimeOutput("13:30", "01:30 pm");
 checkTimeOutput("20:45", "08:45 pm");
 checkTimeOutput("23:59", "11:59 pm");
+
+// Hours or minutes exceed their valid ranges
+checkTimeOutput("24:00", "Invalid time");
+checkTimeOutput("12:60", "Invalid time");
