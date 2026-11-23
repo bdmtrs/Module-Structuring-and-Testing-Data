@@ -8,7 +8,7 @@
 // write one test at a time, and make it pass, build your solution up methodically
 
 function isProperFraction(numerator, denominator) {
-    if (numerator < denominator) return true;
+  return Math.abs(numerator) < Math.abs(denominator);
 }
 
 // here's our helper again
@@ -40,14 +40,42 @@ assertEquals(improperFraction, false);
 // target output: true
 // Explanation: The fraction -4/7 is a proper fraction because the absolute value of the numerator (4) is less than the denominator (7). The function should return true.
 const negativeFraction = isProperFraction(-4, 7);
-// ====> complete with your assertion
+assertEquals(negativeFraction, true);
 
 // Equal Numerator and Denominator check:
 // Input: numerator = 3, denominator = 3
 // target output: false
 // Explanation: The fraction 3/3 is not a proper fraction because the numerator is equal to the denominator. The function should return false.
 const equalFraction = isProperFraction(3, 3);
-// ====> complete with your assertion
+assertEquals(equalFraction, false);
 
 // Stretch:
 // What other scenarios could you test for?
+
+// Negative Improper Fraction check:
+// Input: numerator = -9, denominator = 7
+// Target output: false
+// Explanation: The absolute value of the numerator (9) is greater than the denominator (7), so the fraction is improper.
+const negativeImproperFraction = isProperFraction(-9, 7);
+assertEquals(negativeImproperFraction, false);
+
+// Zero Numerator check:
+// Input: numerator = 0, denominator = 5
+// Target output: true
+// Explanation: The numerator (0) is less than the denominator (5), so the fraction is proper.
+const zeroNumerator = isProperFraction(0, 5);
+assertEquals(zeroNumerator, true);
+
+// Negative Denominator check:
+// Input: numerator = 2, denominator = -3
+// Target output: true
+// Explanation: The absolute value of the denominator (3) is greater than the numerator (2), so the fraction is proper.
+const negativeDenominator = isProperFraction(2, -3);
+assertEquals(negativeDenominator, true);
+
+// Both Negative check:
+// Input: numerator = -2, denominator = -3
+// Target output: true
+// Explanation: The absolute values (2 and 3) are compared, and 2 is less than 3, so the fraction is proper.
+const bothNegative = isProperFraction(-2, -3);
+assertEquals(bothNegative, true);
